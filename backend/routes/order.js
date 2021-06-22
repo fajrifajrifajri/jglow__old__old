@@ -7,13 +7,15 @@ router.route('/').get((req, res) => {
 		.catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.post('/add', (req, res) => {
+	console.log(req.body)
+	
 	const nama = req.body.nama;
 	const alamat = req.body.alamat;
-	const noTelp = Number(req.body.noTelp);
-	const noAgent = Number(req.body.noAgent);
+	const noTelp = req.body.noTelp;
+	const noAgent = req.body.noAgent;
 	const orderProduct = req.body.orderProduct;
-	const jumlahOrder = req.body.jumlahOrder;
+	const jumlahOrder = Number(req.body.jumlahOrder);
 	const optionPengiriman = req.body.optionPengiriman;
 
 	const newOrder = new Order({

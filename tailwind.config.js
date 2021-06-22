@@ -9,6 +9,9 @@ module.exports = {
 				dark: '#DD4A7E',
 			},
 		},
+		backgroundImage: theme => ({
+         'layout': "url('../img/background/bg2.png')",
+        })
 	},
   },
   variants: {

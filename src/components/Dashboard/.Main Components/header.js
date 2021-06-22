@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Assets & Components include
-import '../../Assets/css/index.css';
+import '../../../Assets/css/index.css';
 
 // FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

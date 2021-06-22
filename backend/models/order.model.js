@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
 	nama: { type: String, required: true },
 	alamat: { type: String, required: true },
-	noTelp: { type: Number, required: true },
-	noAgent: { type: Number, required: true },
+	noTelp: { type: String, required: true },
+	noAgent: { type: String, required: true },
 	orderProduct: { type: String, required: true },
 	jumlahOrder: { type: Number, required: true },
 	optionPengiriman: { type: String, required: true },

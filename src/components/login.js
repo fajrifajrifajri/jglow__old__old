@@ -70,7 +70,8 @@ class Login extends Component {
 					<FontAwesomeIcon icon={faLock} className="text-gray-400 p-3 fa-3x" />
 					<input type="text" placeholder="Password" className="bg-gray-100 pl-2 w-full"/>
 				</div>
-				<input type="submit" value="Log in" className="bg-green-300 text-white w-full py-2 cursor-pointer"/>
+				<Link to="/konsultasi" className="block bg-green-300 text-center text-white w-full py-2 cursor-pointer">Log in</Link>
+				{/* <input type="submit" value="Log in" className="bg-green-300 text-white w-full py-2 cursor-pointer"/> */}
 			</form>
 		</div>
     </div>

@@ -18,8 +18,8 @@ connection.once('open', () => {
 	console.log("MongoDB database connection established successfully");
 })
 
-// Upload Foto
-app.use(express.static(path.join(__dirname, "../public/")));
+// Show Foto
+app.use('/public', express.static(path.join(__dirname, "../public/")));
 //
 
 const konsultasiRouter = require('./routes/konsultasi');

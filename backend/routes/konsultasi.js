@@ -5,7 +5,7 @@ const multer = require("multer");
 
 // File Foto
 const storage = multer.diskStorage({
-   destination: "./public/",
+   destination: "../public/",
    filename: function(req, file, cb){
       cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
    }
@@ -24,32 +24,48 @@ router.route('/').get((req, res) => {
 		.catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post('/add', uploadFoto.fields([{ name: 'fotoAgentFile', maxCount: 1 }, { name: 'fotoKulitFile', maxCount:1 }]), (req, res) => {
+router.post('/add', uploadFoto.fields([{ name: 'fotoAgent', maxCount: 1 }, { name: 'fotoKulit', maxCount:1 }]), (req, res) => {
 	   
-	console.log("Request ---", req.body);
+	//console.log("Request ---", req.body);
 	console.log("Request file ---", req.files);//Here you get file.
 	
 	const nama = req.body.nama;
 	const tanggalLahir = Date.parse(req.body.tanggalLahir);
+	const selectedKelamin = req.body.selectedKelamin;
 	const alamat = req.body.alamat;
-	const noTelp = Number(req.body.noTelp);
-	const noAgent = Number(req.body.noAgent);
-	const spesifikasiKulit = req.body.spesifikasiKulit;
-	const fotoAgent = req.body.fotoAgent;
-	const fotoKulit = req.body.fotoKulit;
-	const kondisi = req.body.kondisi;
+	const noTelp = req.body.noTelp;
+	const jenisKulit = req.body.jenisKulit;
+	const kulitSensitif = req.body.kulitSensitif;
+	const mudahIritasi = req.body.mudahIritasi;
+	const hamilDanMenyusui = req.body.hamilDanMenyusui;
+	const riwayatSkincare = req.body.riwayatSkincare;
+	const kondisiKeluhan = req.body.kondisiKeluhan;
+	const penggunaanKe = req.body.penggunaanKe;
+	const fotoAgent = req.files.fotoAgent[0].filename;
+	const fotoKulit = req.files.fotoKulit[0].filename;
+	const noAgent = req.body.noAgent;
+	
+	console.log(fotoAgent);
 
 	const newKonsultasi = new Konsultasi({
 		nama,
 		tanggalLahir,
+		selectedKelamin,
 		alamat,
 		noTelp,
+		jenisKulit,
+		kulitSensitif,
+		mudahIritasi,
+		hamilDanMenyusui,
+		riwayatSkincare,
+		kondisiKeluhan,
+		penggunaanKe,
 		noAgent,
-		spesifikasiKulit,
 		fotoAgent,
 		fotoKulit,
-		kondisi,
 	});
+	
+	//console.log(newKonsultasi);
 	
 	newKonsultasi.save()
 		.then(() => res.json('Konsultasi ditambahkan!'))

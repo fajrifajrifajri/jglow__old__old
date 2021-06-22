@@ -9,12 +9,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faTruck, faBoxOpen, faUserSecret, faUsersCog, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 // Styling
-import '../../Assets/css/index.css';
-import "./Sidebar/accordion.css";
+import '../../../Assets/css/index.css';
+import "../Sidebar/accordion.css";
 
 // Assets & Components include
-import logo from '../../Assets/img/Logo JGLOW.png';
-import Accordion from "./Sidebar/accordion";
+import logo from '../../../Assets/img/Logo JGLOW.png';
+import Accordion from "../Sidebar/accordion";
 
 class Sidebar extends Component {
 	
@@ -22,7 +22,7 @@ class Sidebar extends Component {
     return (
     <div id="sidebar" className="h-screen py-16 text-lg">
 		<img src={logo} alt="logo" className="block m-auto"/>
-		<div className="my-4">
+		<div className="my-12">
 			<button className='accordion w-full'>
 				<div className='flex px-4'>
 					<FontAwesomeIcon icon={faHome} className='m-auto fa-sm mr-3' />
@@ -51,12 +51,12 @@ class Sidebar extends Component {
 			   isDisabled={true}
 			   title="Kelola User"
 			/>
-			<button className='accordion w-full'>
+			<Link to="/" className='accordion w-full'>
 				<div className='flex px-4'>
 					<FontAwesomeIcon icon={faArrowAltCircleLeft} className='m-auto fa-sm mr-3' />
 					<p className="font-bold">Keluar</p>
 				</div>
-			</button>
+			</Link>
 		</div>
     </div>
     );

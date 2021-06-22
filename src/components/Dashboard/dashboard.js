@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // Assets & Components include
 import '../../Assets/css/index.css';
-import Sidebar from './sidebar';
+import Sidebar from './.Main Components/sidebar';
 
 class Dashboard extends Component {
 	

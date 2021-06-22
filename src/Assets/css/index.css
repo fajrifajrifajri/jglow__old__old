@@ -13,15 +13,19 @@ html {
 }
 
 table tr:nth-child(even){
-	@apply bg-pink-light;
+	@apply bg-gray-200;
 }
 
 table tr:hover {
-	@apply bg-gray-100;
+	@apply bg-gray-300;
 }
 
 table th {
 	@apply py-8 text-left;
+}
+
+table td {
+	@apply bg-gray-100;
 }
 
 .form-group {
@@ -29,8 +33,8 @@ table th {
 }
 
 .form-group small {
-	@apply text-gray-100;
-}3
+	@apply text-gray-300;
+}
 
 .form-control {
 	@apply block w-full border p-3;
