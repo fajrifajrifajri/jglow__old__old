@@ -3,6 +3,12 @@ const path = require("path");
 let Konsultasi = require('../models/konsultasi.model');
 const multer = require("multer");
 
+router.route('/').get((req, res) => {
+	Konsultasi.find()
+		.then(konsultasi => res.json(konsultasi))
+		.catch(err => res.status(400).json('Error: ' + err));
+});
+
 // File Foto
 const storage = multer.diskStorage({
    destination: "../public/",
@@ -15,14 +21,6 @@ const uploadFoto = multer({
    storage: storage,
    limits:{fileSize: 1000000}
 })
-
-//
-
-router.route('/').get((req, res) => {
-	Konsultasi.find()
-		.then(konsultasi => res.json(konsultasi))
-		.catch(err => res.status(400).json('Error: ' + err));
-});
 
 router.post('/add', uploadFoto.fields([{ name: 'fotoAgent', maxCount: 1 }, { name: 'fotoKulit', maxCount:1 }]), (req, res) => {
 	   

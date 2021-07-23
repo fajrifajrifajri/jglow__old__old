@@ -17,7 +17,6 @@ import { faChevronLeft, faPlusSquare, faTimes } from '@fortawesome/free-solid-sv
 
 // SweetAlert 2
 import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content'
 
 class Konsultasi extends Component {
 	constructor(props) {
@@ -137,7 +136,7 @@ class Konsultasi extends Component {
 			  .then(axios.spread((res1, res2) => {
 				  // check if there's any update or data empty
 				  // Because of JavaScript stupidity of [] === [] is false, so I have to stringify first.
-				  if(JSON.stringify(this.state.data) == '[]' || JSON.stringify(prevState.data) !== JSON.stringify(res1.data)) {
+				  if(JSON.stringify(this.state.data) === '[]' || JSON.stringify(prevState.data) !== JSON.stringify(res1.data)) {
 					  console.log(this.state.data);
 					  console.log(res1.data);
 					  // count how many data
